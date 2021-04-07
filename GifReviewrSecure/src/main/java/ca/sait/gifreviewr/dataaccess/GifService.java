@@ -24,13 +24,10 @@ public class GifService {
      * @throws SQLException Thrown if an error occurred performing SQL operation.
      */
     public ArrayList<Gif> find(String query, int rating) throws SQLException {
-        String sql = "SELECT gifs.*, AVG(reviews.rating) AS average FROM gifs LEFT JOIN reviews ON gifs.id = reviews.gif_id WHERE title LIKE ? GROUP BY gifs.id";
-        PreparedStatement stmt = this.driver.getConnection().prepareStatement(sql);
+        String sql = String.format("SELECT gifs.*, AVG(reviews.rating) AS average FROM gifs LEFT JOIN reviews ON gifs.id = reviews.gif_id WHERE title LIKE %s GROUP BY gifs.id", query);
+        Statement stmt = this.driver.getConnection().createStatement();
         
-        String queryFormatted = String.format("%%%s%%", query);
-        stmt.setString(1, queryFormatted);
-        
-        ResultSet rs = stmt.executeQuery();
+        ResultSet rs = stmt.executeQuery(sql);
         
         ArrayList<Gif> found = new ArrayList<>();
         
