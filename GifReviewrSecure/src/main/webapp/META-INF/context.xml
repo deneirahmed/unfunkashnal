@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/GifReviewr">
+    <Resource 
+        name="jdbc/db"
+        auth="Container"
+        type="javax.sql.DataSource"
+        username="root"
+        password="password"
+        driverClassName="org.mariadb.jdbc.Driver"
+        url="jdbc:mysql://localhost:3306/gifreviewr"
+        maxActive="15"
+        maxIdle="3"/>
+</Context>
