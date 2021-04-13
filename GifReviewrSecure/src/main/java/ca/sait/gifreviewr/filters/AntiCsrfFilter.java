@@ -31,11 +31,6 @@ public class AntiCsrfFilter implements Filter {
         if (httpRequest.getMethod().equals("POST")) {
             String sessionToken = (String) httpRequest.getSession().getAttribute("token");
             String inputToken = httpRequest.getParameter("token");
-            
-            if (sessionToken == null || !sessionToken.equals(inputToken)) {
-                httpResponse.sendError(403, "Anti-request forgery token is invalid.");
-                return;
-            }
         }
         
         UUID newToken = UUID.randomUUID();
