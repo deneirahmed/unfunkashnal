@@ -65,13 +65,13 @@
                             <div class="row">
                                 <c:forEach items="${gifs}" var="gif">
                                 <div class="col-4 text-center">
-                                    <a href="<c:out value="gif?id=${gif.getId()}" />">
+                                    <a href="gif?id=${gif.getId()}">
                                         <figure class="figure">
-                                            <img class="img-fluid figure-img" src="<c:out value="${gif.getUrl()}" />">
+                                            <img class="img-fluid figure-img" src="${gif.getUrl()}">
                                             <figcaption class="figure-caption">
-                                                <c:out value="${gif.getTitle()}" />
+                                                ${gif.getTitle()}
                                                 <br>
-                                                <c:out value='${String.format("%.1f stars out of 5", gif.getAverageRating())}' />
+                                                ${String.format("%.1f stars out of 5", gif.getAverageRating())}
                                             </figcaption>
                                         </figure>
                                     </a>
