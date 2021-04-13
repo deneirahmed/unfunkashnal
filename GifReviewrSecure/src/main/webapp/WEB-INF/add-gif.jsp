@@ -45,7 +45,7 @@
                     <div class="card">
                         <div class="card-body mb-4">
                             <h4 class="card-title">Add GIF</h4>
-                            <form action="add-gif" method="post">
+                            <form action="add-gif" method="get">
                                 <input type="hidden" name="token" value="<c:out value="${token}" />">
                                 <div class="form-group row">
                                     <label for="title" class="col-sm-2 col-form-label text-md-right">Title</label>
