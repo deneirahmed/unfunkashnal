@@ -54,7 +54,7 @@ public class GifService {
      * @throws SQLException Thrown if an error occurred performing SQL operation.
      */
     public Gif get(int id) throws SQLException {
-        String sql = String.format("SELECT gifs.*, IFNULL(AVG(reviews.rating), 0) AS average FROM gifs LEFT JOIN reviews ON gifs.id = reviews.gif_id WHERE gifs.id = %%%s%% GROUP BY gifs.id", id);
+        String sql = String.format("SELECT gifs.*, IFNULL(AVG(reviews.rating), 0) AS average FROM gifs LEFT JOIN reviews ON gifs.id = reviews.gif_id WHERE gifs.id = %d GROUP BY gifs.id", id);
         Statement stmt = this.driver.getConnection().createStatement();
         
         ResultSet rs = stmt.executeQuery(sql);
@@ -80,7 +80,7 @@ public class GifService {
      * @throws SQLException Thrown if an error occurred performing SQL operation.
      */
     public boolean add(String title, String url) throws SQLException {
-        String sql = String.format("INSERT INTO gifs (title, url) VALUES(%s, %s)", title, url);
+        String sql = String.format("INSERT INTO gifs (title, url) VALUES('%s', '%s')", title, url);
         Statement stmt = this.driver.getConnection().createStatement();
         
         int added = stmt.executeUpdate(sql);

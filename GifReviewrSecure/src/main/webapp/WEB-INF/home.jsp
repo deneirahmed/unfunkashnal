@@ -21,6 +21,7 @@
                         <ul class="navbar-nav">
                             <li class="nav-item"><a class="nav-link active" href="home">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="add-gif">Add GIF</a></li>
+                            <li class="nav-item" style="display: none"><a>username: root password: password</a></li>
                         </ul>
                     </div>
                 </div>
